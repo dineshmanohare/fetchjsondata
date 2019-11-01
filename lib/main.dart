@@ -54,22 +54,16 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text('fetch data'),
       ),
-      body: Container(
-        child: Column(
-          children: <Widget>[
-            ListView(
-              scrollDirection: Axis.vertical,
-              children: <Widget>[
-                for (var user in users)
-                  ListTile(
-                    leading: Text(user.avatar),
-                    title: Text(user.login),
-                    trailing: Text(user.id),
-                  ),
-              ],
-            )
-          ],
-        ),
+      body: ListView(
+        scrollDirection: Axis.vertical,
+        children: <Widget>[
+          for (var user in users)
+            ListTile(
+              leading: Image.network(user.avatar),
+              title: Text(user.login),
+              trailing: Text(user.id),
+            ),
+        ],
       ),
     );
   }
